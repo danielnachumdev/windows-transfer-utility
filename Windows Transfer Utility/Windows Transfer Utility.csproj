@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Windows_Transfer_Utility</RootNamespace>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>Windows Transfer Utility.ico</ApplicationIcon>
+    <SignAssembly>false</SignAssembly>
+    <Authors>Daniel Nachum</Authors>
+    <Copyright>Daniel Nachum</Copyright>
+    <RepositoryUrl>https://github.com/danielnachumdev/windows-transfer-utility</RepositoryUrl>
+    <RepositoryType>Public</RepositoryType>
+    <PackageIcon>Windows Transfer Utility.png</PackageIcon>
+    <PackageIconUrl />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Windows Transfer Utility.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
