@@ -1,6 +1,8 @@
 # windows-transfer-utility
 An application to transfer files in windows while preforming optimization checks for merging
 
+BY USING THIS PROGRAM YOU AGREE TO TAKING FULL RESPONSEBILITY ON THE OUTCOME
+
 ## Use Case
 IF you ever had folders that got duplicated and wnat to merge them back than this application is for you, the core mechanic is that if two files are in the same relative path and has the same name the program will keep the newer one
 
