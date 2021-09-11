@@ -8,7 +8,7 @@ you have a few merging options to choose from:
 
 ![image](https://user-images.githubusercontent.com/34595741/132944495-57298977-6b1c-40a8-b81c-b87d9064c617.png)
 ## options explanation:
-- 'when replacing, create backup?'
+- ### when replacing, create backup?
 if this option is turned on: the program will merge folders if a certian file apperas twice it will change to older one's extention to .backup to keep it there side by side with the newer file, it will also create a log file listing replaced files (see example below). if this option is not turned on: the program will delete the older file and will only keep the newer one. 
 - 'Delete Empty Folders' if the program encunters in an empty folder in the 'source' subdirectories it will delete. (it but will still copy it to the 'target')
 - 'Skip Empty Directories' if the program encounters an empty directory it will not transfer it to the 'target' and will just skip it
