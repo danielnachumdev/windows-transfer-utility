@@ -2,8 +2,8 @@
 An application to transfer files in windows while preforming optimization checks for merging
 
 BY USING THIS PROGRAM YOU AGREE TO TAKING FULL RESPONSEBILITY ON THE OUTCOME
-[exe](https://github.com/danielnachumdev/windows-transfer-utility/blob/main/Windows%20Transfer%20Utility.exe)
-[code](https://github.com/danielnachumdev/windows-transfer-utility/blob/main/Windows%20Transfer%20Utility/MainForm.cs)
+-###[exe](https://github.com/danielnachumdev/windows-transfer-utility/blob/main/Windows%20Transfer%20Utility.exe)
+-###[code](https://github.com/danielnachumdev/windows-transfer-utility/blob/main/Windows%20Transfer%20Utility/MainForm.cs)
 
 ## Use Case
 IF you ever had folders that got duplicated and wnat to merge them back than this application is for you, the core mechanic is that if two files are in the same relative path and has the same name the program will keep the newer one
