@@ -68,6 +68,7 @@ namespace Windows_Transfer_Utility
             this.actionPanel = new System.Windows.Forms.Panel();
             this.mainTimer = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.browserPanel.SuspendLayout();
             this.folder2Panel.SuspendLayout();
             this.folder1Panel.SuspendLayout();
@@ -445,11 +446,24 @@ namespace Windows_Transfer_Utility
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.LinkArea = new System.Windows.Forms.LinkArea(0, 36);
+            this.linkLabel1.Location = new System.Drawing.Point(1648, 981);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(301, 25);
+            this.linkLabel1.TabIndex = 20;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "All rights reserved to Daniel Nachum";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked_1);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1950, 1003);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.actionPanel);
             this.Controls.Add(this.browserPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -469,6 +483,7 @@ namespace Windows_Transfer_Utility
             this.progressPanel.PerformLayout();
             this.actionPanel.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -511,6 +526,7 @@ namespace Windows_Transfer_Utility
         private System.Windows.Forms.Button goUpButton1;
         private System.Windows.Forms.Label infoLabel;
         private System.Windows.Forms.Label cDirLabel;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 
