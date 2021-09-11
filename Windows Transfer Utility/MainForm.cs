@@ -187,7 +187,7 @@ namespace Windows_Transfer_Utility
                         CopyFilesRecursively(dir, target.CreateSubdirectory(dir.Name));
 
 
-                    if (deleteEmptyFoldersCheckBox.Checked&&dir.GetDirectories().Length==0&&dir.GetFiles().Length==0)
+                    if (deleteEmptyFoldersCheckBox.Checked && dir.GetDirectories().Length == 0 && dir.GetFiles().Length == 0)
                         dir.Delete();
                 }
                 else
@@ -408,7 +408,7 @@ namespace Windows_Transfer_Utility
         {
             Directory.CreateDirectory(dirB + relativePath);
             CopyFilesRecursively(new DirectoryInfo(dirA + path.Substring(dirA.Length)), new DirectoryInfo(dirB + relativePath));
-            if (deleteEmptyFoldersCheckBox.Checked&&Directory.GetDirectories(path).Length==0&&Directory.GetFiles(path).Length==0)
+            if (deleteEmptyFoldersCheckBox.Checked && Directory.GetDirectories(path).Length == 0 && Directory.GetFiles(path).Length == 0)
                 Directory.Delete(path);
             //copied += Directory.GetFiles(dirB + relativePath, "*.*", SearchOption.AllDirectories).Count();
         }
@@ -576,16 +576,6 @@ namespace Windows_Transfer_Utility
         {
             infoLabel.Text = "Directory: \nCurrent FIle: \nFile Size: ";
             cDirLabel.Text = "";
-            string path = "D:/Clouds/OneDrive/am.arc/OneDrive/AM";
-            //path = "E:/copy";
-
-            if (Directory.Exists(path))
-                onFolderSelection(path, 1);
-            path = "E:\\AM";
-
-            //path = "E:/AM/AM_1 צור הדסה";
-            if (Directory.Exists(path))
-                onFolderSelection(path, 2);
         }
     }
 }
