@@ -8,9 +8,11 @@ you have a few merging options to choose from:
 
 ![image](https://user-images.githubusercontent.com/34595741/132944495-57298977-6b1c-40a8-b81c-b87d9064c617.png)
 ## options explanation:
-- 'when replacing, create backup?': 
-..1. if this option is turned on: the program will merge folders if a certian file apperas twice it will change to older one's extention to .backup to keep it there side by side with the newer file
-..2. test
+- 'when replacing, create backup?'
+if this option is turned on: the program will merge folders if a certian file apperas twice it will change to older one's extention to .backup to keep it there side by side with the newer file, it will also create a log file listing replaced files (see example below). if this option is not turned on: the program will delete the older file and will only keep the newer one. 
+- 'Delete Empty Folders' if the program encunters in an empty folder in the 'source' subdirectories it will delete. (it but will still copy it to the 'target')
+- 'Skip Empty Directories' if the program encounters an empty directory it will not transfer it to the 'target' and will just skip it
+- 'Merge Similar Directories' if the program encounters folders int the same subdirectory heirarchy with the same name (e.g 'folder a' 'folder a (1)' 'folder a (2)) as in the way windows create copies of folders' the program will merge their contents together (see examples below)
 ### Before
 <img width="941" alt="image 1" src="https://user-images.githubusercontent.com/34595741/132944417-2e53ceaf-db17-40d6-83e1-f5613a81a615.png">
 
