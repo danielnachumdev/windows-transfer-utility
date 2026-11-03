@@ -1,29 +1,64 @@
-# windows-transfer-utility
-An application to transfer files in windows while preforming optimization checks for merging
+# Windows Transfer Utility
 
-BY USING THIS PROGRAM YOU AGREE TO TAKING FULL RESPONSEBILITY ON THE OUTCOME
+WinForms app for **merging duplicated Windows folders** back together. Pick a source and a target; when two files share the same relative path and name, the utility keeps the **newer** one (by last-write time) and optionally backs up or deletes the older copy.
 
-- [exe](https://github.com/danielnachumdev/windows-transfer-utility/blob/main/Windows%20Transfer%20Utility.exe)
+> **Disclaimer:** You are fully responsible for the outcome of any merge or delete this program performs. Back up important data first.
 
-- [code](https://github.com/danielnachumdev/windows-transfer-utility/blob/main/Windows%20Transfer%20Utility/MainForm.cs)
+Prebuilt binary (tracked in-repo): [`Windows Transfer Utility.exe`](https://github.com/danielnachumdev/windows-transfer-utility/blob/main/Windows%20Transfer%20Utility.exe)
 
-## Use Case
-IF you ever had folders that got duplicated and wnat to merge them back than this application is for you, the core mechanic is that if two files are in the same relative path and has the same name the program will keep the newer one
+## What it does
 
-you have a few merging options to choose from:
+- Browse **source** and **target** folders in the UI
+- **Copy** or **Cut** (move) files into the target tree
+- On name collisions: keep the newer file; optionally rename the older target file to `.backup` and write a replaced-file log
+- Optional cleanup: delete empty source folders, skip empty directories on transfer
+- Optional **Merge Similar Directories** for Windows-style copies (`folder`, `folder (1)`, `folder (2)`)
 
-![image](https://user-images.githubusercontent.com/34595741/132944495-57298977-6b1c-40a8-b81c-b87d9064c617.png)
-## options explanation:
-- ### when replacing, create backup?
-if this option is turned on: the program will merge folders if a certian file apperas twice it will change to older one's extention to .backup to keep it there side by side with the newer file, it will also create a log file listing replaced files (see example below). if this option is not turned on: the program will delete the older file and will only keep the newer one. 
-- ### Delete Empty Folders 
-if the program encunters in an empty folder in the 'source' subdirectories it will delete. (it but will still copy it to the 'target')
-- ### Skip Empty Directories
-if the program encounters an empty directory it will not transfer it to the 'target' and will just skip it
-- ### Merge Similar Directories
- if the program encounters folders int the same subdirectory heirarchy with the same name (e.g 'folder a' 'folder a (1)' 'folder a (2)) as in the way windows create copies of folders' the program will merge their contents together (see examples below)
-### Before
-<img width="941" alt="image 1" src="https://user-images.githubusercontent.com/34595741/132944417-2e53ceaf-db17-40d6-83e1-f5613a81a615.png">
+Core transfer logic lives in [`MainForm.cs`](https://github.com/danielnachumdev/windows-transfer-utility/blob/main/Windows%20Transfer%20Utility/MainForm.cs).
 
-### After
-<img width="1242" alt="image 2" src="https://user-images.githubusercontent.com/34595741/132944421-c88cad48-dd19-470e-a31b-0f0ca42271a9.png">
+## Requirements
+
+- **Windows** (WinForms)
+- [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/3.1) (or a newer SDK that can target `netcoreapp3.1`) — only needed to build from source
+
+## Build & run
+
+```bash
+dotnet build "Windows Transfer Utility.sln"
+dotnet run --project "Windows Transfer Utility"
+```
+
+Or open `Windows Transfer Utility.sln` in Visual Studio and press F5. You can also run the checked-in `.exe` on Windows without building.
+
+## Usage
+
+1. Select the **source** folder and the **target** folder.
+2. Choose **Copy** or **Cut**.
+3. Toggle options as needed (backup on replace, empty-folder behavior, merge similar directories).
+4. Click **Start** and wait for the progress bar / status to finish.
+5. If replacements or errors occurred, check logs written under the **target** folder (`REPLACED FILE LOG.txt`, `… - ERROR LOG.txt`).
+
+### Options
+
+![options UI](https://user-images.githubusercontent.com/34595741/132944495-57298977-6b1c-40a8-b81c-b87d9064c617.png)
+
+| Option | Behavior |
+| ------ | -------- |
+| **when replacing, create backup?** | On collision where source is newer: rename the existing target file to `.backup` (and log it). Off → delete the older target file. |
+| **Delete Empty Folders?** | After copying a missing subtree, delete empty folders under **source**. |
+| **Skip Empty Directories?** | Do not create empty directories under **target**. |
+| **Merge Similar Directories?** | Treat `name`, `name (1)`, `name (2)`, … as the same folder and merge contents (Windows duplicate-folder naming). |
+
+### Merge similar directories — before / after
+
+**Before**
+
+<img width="941" alt="before merge" src="https://user-images.githubusercontent.com/34595741/132944417-2e53ceaf-db17-40d6-83e1-f5613a81a615.png">
+
+**After**
+
+<img width="1242" alt="after merge" src="https://user-images.githubusercontent.com/34595741/132944421-c88cad48-dd19-470e-a31b-0f0ca42271a9.png">
+
+## Contributing
+
+Agent / maintainer notes (layout, toolchain, PR labels): [`AGENTS.md`](./AGENTS.md).
